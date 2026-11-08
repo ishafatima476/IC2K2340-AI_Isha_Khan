@@ -1,0 +1,53 @@
+
+
+import pandas as pd
+
+# Creating a dictionary of student data
+data = {
+    "Name": ["Aman", "Riya", "Rahul", "Sara", "Ali"],
+    "Age": [20, 21, 22, 20, 23],
+    "Marks": [85, 90, 78, 95, 88],
+    "City": ["Indore", "Bhopal", "Ujjain", "Indore", "Dewas"]
+}
+
+df = pd.DataFrame(data)
+
+print("Original Dataset:")
+print(df)
+
+print("\nFirst 3 Records:")
+print(df.head(3))
+
+print("\nLast 2 Records:")
+print(df.tail(2))
+
+print("\nDataset Information:")
+df.info()
+
+print("\nStatistical Summary:")
+print(df.describe())
+
+print("\nColumn Names:")
+print(df.columns)
+
+print("\nShape of Dataset:")
+print(df.shape)
+
+print("\nStudent Names:")
+print(df["Name"])
+
+print("\nName and Marks:")
+print(df[["Name", "Marks"]])
+
+print("\nStudents with Marks Above 85:")
+print(df[df["Marks"] > 85])
+
+print("\nAverage Marks:", df["Marks"].mean())
+
+print("\nStudents Sorted by Marks:")
+print(df.sort_values(by="Marks", ascending=False))
+
+print("\nMissing Values:")
+print(df.isnull().sum())
+
+print("\nPandas Operations Completed Successfully!")
