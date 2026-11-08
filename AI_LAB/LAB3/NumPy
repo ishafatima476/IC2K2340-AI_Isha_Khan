@@ -1,0 +1,42 @@
+
+
+import numpy as np
+
+arr1 = np.array([10, 20, 30, 40, 50])
+arr2 = np.array([5, 10, 15, 20, 25])
+
+print("First Array:", arr1)
+print("Second Array:", arr2)
+
+print("\nAddition:", arr1 + arr2)
+print("Subtraction:", arr1 - arr2)
+print("Multiplication:", arr1 * arr2)
+print("Division:", arr1 / arr2)
+
+print("\nSum of Array:", np.sum(arr1))
+print("Mean of Array:", np.mean(arr1))
+print("Maximum Value:", np.max(arr1))
+print("Minimum Value:", np.min(arr1))
+
+matrix = np.array([[1, 2, 3],
+                   [4, 5, 6],
+                   [7, 8, 9]])
+
+print("\n2D Array:")
+print(matrix)
+
+print("\nTranspose of Matrix:")
+print(np.transpose(matrix))
+
+print("\nSum of Matrix:", np.sum(matrix))
+print("Row-wise Sum:", np.sum(matrix, axis=1))
+print("Column-wise Sum:", np.sum(matrix, axis=0))
+
+new_array = np.arange(1, 10).reshape(3, 3)
+
+print("\nReshaped Array:")
+print(new_array)
+
+print("\nSquare Root:", np.sqrt(arr1))
+
+print("\nNumPy Operations Completed Successfully!")
