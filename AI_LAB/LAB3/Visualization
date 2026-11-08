@@ -1,0 +1,69 @@
+
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+
+data = {
+    "Name": ["Aman", "Riya", "Rahul", "Sara", "Ali"],
+    "Marks": [85, 90, 78, 95, 88],
+    "Study_Hours": [4, 6, 3, 7, 5]
+}
+
+df = pd.DataFrame(data)
+
+print("Student Dataset:")
+print(df)
+
+# 1. Bar Chart
+plt.figure(figsize=(7, 4))
+plt.bar(df["Name"], df["Marks"])
+plt.title("Student Marks")
+plt.xlabel("Student Name")
+plt.ylabel("Marks")
+plt.show()
+
+# 2. Line Graph
+plt.figure(figsize=(7, 4))
+plt.plot(df["Name"], df["Marks"], marker="o")
+plt.title("Marks of Students")
+plt.xlabel("Student Name")
+plt.ylabel("Marks")
+plt.grid()
+plt.show()
+
+# 3. Scatter Plot
+plt.figure(figsize=(7, 4))
+plt.scatter(df["Study_Hours"], df["Marks"])
+plt.title("Study Hours vs Marks")
+plt.xlabel("Study Hours")
+plt.ylabel("Marks")
+plt.show()
+
+# 4. Histogram
+plt.figure(figsize=(7, 4))
+plt.hist(df["Marks"], bins=5, edgecolor="black")
+plt.title("Distribution of Marks")
+plt.xlabel("Marks")
+plt.ylabel("Frequency")
+plt.show()
+
+# 5. Pie Chart
+plt.figure(figsize=(7, 4))
+plt.pie(
+    df["Marks"],
+    labels=df["Name"],
+    autopct="%1.1f%%",
+    startangle=90
+)
+plt.title("Percentage of Marks")
+plt.show()
+
+# 6. Box Plot
+plt.figure(figsize=(7, 4))
+sns.boxplot(y=df["Marks"])
+plt.title("Box Plot of Student Marks")
+plt.ylabel("Marks")
+plt.show()
+
+print("Data Visualization Completed Successfully!")
