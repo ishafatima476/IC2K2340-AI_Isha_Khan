@@ -1,0 +1,55 @@
+
+# Facts about students
+students = {
+    "Aman": {"age": 20, "course": "MCA", "marks": 85},
+    "Riya": {"age": 21, "course": "MCA", "marks": 90},
+    "Rahul": {"age": 22, "course": "BCA", "marks": 45},
+    "Sara": {"age": 20, "course": "MCA", "marks": 95}
+}
+
+# Display all facts
+print("Knowledge Base:")
+for name, details in students.items():
+    print(name, ":", details)
+
+# Rule 1: Check whether a student passed
+def is_passed(name):
+    if name in students:
+        if students[name]["marks"] >= 50:
+            return True
+    return False
+
+# Rule 2: Check whether a student is an MCA student
+def is_mca_student(name):
+    if name in students:
+        return students[name]["course"] == "MCA"
+    return False
+
+# Rule 3: Check whether a student is eligible for scholarship
+def is_eligible(name):
+    if name in students:
+        return students[name]["marks"] >= 85
+    return False
+
+# Querying the knowledge base
+print("\nKnowledge Base Queries:")
+
+name = "Aman"
+
+print("\nIs", name, "a passed student?", is_passed(name))
+print("Is", name, "an MCA student?", is_mca_student(name))
+print("Is", name, "eligible for scholarship?", is_eligible(name))
+
+# Display passed students
+print("\nStudents who passed:")
+for name in students:
+    if is_passed(name):
+        print(name)
+
+# Display scholarship eligible students
+print("\nScholarship Eligible Students:")
+for name in students:
+    if is_eligible(name):
+        print(name)
+
+print("\nKnowledge Representation Completed Successfully!")
