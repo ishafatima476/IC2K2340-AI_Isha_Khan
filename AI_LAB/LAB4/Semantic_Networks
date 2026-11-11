@@ -1,0 +1,56 @@
+
+
+# Creating a semantic network using a dictionary
+
+knowledge = {
+    "Dog": {
+        "is_a": "Animal",
+        "has": "Four Legs",
+        "can": "Bark"
+    },
+
+    "Cat": {
+        "is_a": "Animal",
+        "has": "Four Legs",
+        "can": "Meow"
+    },
+
+    "Animal": {
+        "is_a": "Living Thing",
+        "needs": "Food and Water"
+    },
+
+    "Bird": {
+        "is_a": "Animal",
+        "can": "Fly"
+    }
+}
+
+# Displaying the semantic network
+print("SEMANTIC NETWORK")
+print("----------------")
+
+for node, relations in knowledge.items():
+    print("\nNode:", node)
+
+    for relation, value in relations.items():
+        print(node, "--", relation, "-->", value)
+
+# Checking relationships
+print("\nChecking Relationships:")
+
+animal = knowledge["Dog"]["is_a"]
+print("Dog is an:", animal)
+
+ability = knowledge["Dog"]["can"]
+print("Dog can:", ability)
+
+# Checking whether a node exists
+name = "Cat"
+
+if name in knowledge:
+    print("\n", name, "is present in the knowledge network.")
+else:
+    print("\n", name, "is not present in the knowledge network.")
+
+print("\nSemantic Network Executed Successfully!")
