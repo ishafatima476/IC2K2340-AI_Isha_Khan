@@ -1,0 +1,32 @@
+
+print("===== STUDENT PERFORMANCE EXPERT SYSTEM =====")
+
+# Taking input from the user
+marks = int(input("Enter your marks: "))
+attendance = int(input("Enter your attendance percentage: "))
+
+# Applying rules
+if marks >= 85 and attendance >= 75:
+    print("Result: Excellent Performance")
+    print("Suggestion: You are eligible for a scholarship.")
+
+elif marks >= 60 and attendance >= 75:
+    print("Result: Good Performance")
+    print("Suggestion: Keep improving your studies.")
+
+elif marks >= 40 and attendance >= 75:
+    print("Result: Average Performance")
+    print("Suggestion: You need more practice.")
+
+elif marks < 40:
+    print("Result: Poor Performance")
+    print("Suggestion: You need to work harder.")
+
+elif attendance < 75:
+    print("Result: Low Attendance")
+    print("Suggestion: Improve your attendance.")
+
+else:
+    print("Result: Needs Improvement")
+
+print("\nRule-Based System Executed Successfully!")
