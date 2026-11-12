@@ -1,0 +1,71 @@
+
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+import matplotlib.pyplot as plt
+
+# Creating a sample dataset
+data = {
+    "Study_Hours": [2, 3, 4, 5, 6, 7, 8, 9, 1, 10],
+    "Attendance": [50, 55, 60, 65, 75, 80, 85, 90, 40, 95],
+    "Result": ["Fail", "Fail", "Fail", "Pass", "Pass",
+               "Pass", "Pass", "Pass", "Fail", "Pass"]
+}
+
+df = pd.DataFrame(data)
+
+print("Original Dataset:")
+print(df)
+
+# Separating input and output
+X = df[["Study_Hours", "Attendance"]]
+y = df["Result"]
+
+# Splitting the dataset into training and testing data
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42
+)
+
+# Creating the Decision Tree Classifier
+model = DecisionTreeClassifier(random_state=42)
+
+# Training the model
+model.fit(X_train, y_train)
+
+# Predicting the result
+y_pred = model.predict(X_test)
+
+print("\nActual Results:")
+print(list(y_test))
+
+print("\nPredicted Results:")
+print(y_pred)
+
+# Checking model accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print("\nModel Accuracy:", accuracy * 100, "%")
+
+# Predicting for a new student
+new_student = pd.DataFrame(
+    [[6, 80]],
+    columns=["Study_Hours", "Attendance"]
+)
+
+prediction = model.predict(new_student)
+print("\nPrediction for New Student:", prediction[0])
+
+# Displaying the decision tree
+plt.figure(figsize=(12, 7))
+plot_tree(
+    model,
+    feature_names=["Study_Hours", "Attendance"],
+    class_names=model.classes_,
+    filled=True,
+    rounded=True
+)
+
+plt.title("Decision Tree Classifier")
+plt.show()
+
+print("\nDecision Tree Classification Completed Successfully!")
