@@ -1,0 +1,67 @@
+A Neural Network is a machine learning model inspired by the human brain. It learns from data and makes predictions or decisions.
+
+For example:
+- Predicting student results.
+- Recognizing handwritten digits.
+- Identifying objects in images.
+- Predicting house prices.
+1. Structure of a Neural Network
+A neural network mainly contains three types of layers
+
+
+1. Input Layer: Receives input data.
+2. Hidden Layer: Processes information and learns patterns.
+3. Output Layer: Produces the final result.
+Example: Predicting whether a student will pass or fail.
+- Input: Study hours and attendance.
+- Hidden layer: Processes the information.
+- Output: Pass or Fail.
+Simple Neural Network using PyTorch
+This program creates a basic neural network with one input layer and one output layer.
+
+import torch
+import torch.nn as nn
+
+# Create input data
+X = torch.tensor([[1.0], [2.0], [3.0], [4.0]])
+
+# Expected output
+y = torch.tensor([[2.0], [4.0], [6.0], [8.0]])
+
+# Create neural network
+model = nn.Sequential(
+    nn.Linear(1, 5),
+    nn.ReLU(),
+    nn.Linear(5, 1)
+)
+
+# Define loss function
+loss_function = nn.MSELoss()
+
+# Define optimizer
+optimizer = torch.optim.SGD(
+    model.parameters(), lr=0.01
+)
+
+# Training
+for epoch in range(1000):
+
+    # Forward propagation
+    prediction = model(X)
+
+    # Calculate loss
+    loss = loss_function(prediction, y)
+
+    # Backpropagation
+    optimizer.zero_grad()
+    loss.backward()
+
+    # Update weights
+    optimizer.step()
+
+# Test the model
+test = torch.tensor([[5.0]])
+
+result = model(test)
+
+print("Predicted Output:", result.item())
